@@ -7,6 +7,13 @@
 # between the ratio of the prior probabilities    #
 # and the posterior probabilities.                #
 ###################################################
+#  
+#  ####################################################
+#  # IF SYMBOLS LOOK MESSED UP                        #
+#  # Click File > Reopen with Encoding > Select UTF-8 #
+#  ####################################################
+#
+#
 #  ℙ(∏1 | x)
 #             >  1
 #  ℙ(∏2 | X)
@@ -239,5 +246,13 @@ pairs(iris[1:4], main = "Iris Data", pch = 21, bg = c("red", "green3", "blue")
 # Lets make a forest out of the flowers
 
 # Divide the data into 0.7 / 0.3 training and test data
+ind <- sample(2,nrow(iris),replace = TRUE, prob = c(0.7,0.3))
+trainData <- iris[ind == 1, ]
+testData <- iris[ind == 2, ]
 
+#################################################
+# Exercise 3.3c                                 #
+#################################################
+#install.packages("randomForest")
+library(randomForest)
 
