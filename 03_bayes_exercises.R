@@ -42,8 +42,7 @@
 #################################################
 # Exercise 3.2a                                 #
 #################################################
-# Source:                                       #
-#                                               #############################################################
+# Source:                                       #############################################################
 # https://eight2late.wordpress.com/2015/11/06/a-gentle-introduction-to-naive-bayes-classification-using-r/  #
 #############################################################################################################
 setwd("~/Documents/rprojects/dataScience")
@@ -219,3 +218,26 @@ sd(fraction_correct_predictions)
 #####################################################################################
 
 # Lets do some fancy colourful plotting
+plot(iris$Petal.Length, iris$Petal.Width, pch = 21, bg = c("red", "green3", "blue")
+     [unclass(iris$Species)], main = "Iris Data", xlab = "Petal Length", ylab = "Petal Width")
+
+# As illustrated in the scatterplot the different species are different in length and width
+# Now, how do the other variables behave?
+# For this we can use "pairs" command, which pairs scatterplots into a matrix
+pairs(iris[1:4], main = "Iris Data", pch = 21, bg = c("red", "green3", "blue")
+      [unclass(iris$Species)])
+
+# Can probably be done even fancier!
+
+#################################################
+# Exercise 3.3b                                 #
+#################################################
+# Source:                                       #
+# http://rischanlab.github.io/RandomForest.html #
+#################################################
+
+# Lets make a forest out of the flowers
+
+# Divide the data into 0.7 / 0.3 training and test data
+
+
