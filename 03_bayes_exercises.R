@@ -256,3 +256,21 @@ testData <- iris[ind == 2, ]
 #install.packages("randomForest")
 library(randomForest)
 
+# Generate random forest learning trees
+iris_rf <- randomForest(Species~.,data=trainData,ntree=100,proximity=TRUE)
+table(predict(iris_rf), trainData$Species)
+
+print(iris_rf)
+
+plot(iris_rf)
+
+importance(iris_rf)
+varImpPlot(iris_rf)
+
+#################################################
+# Exercise 3.3d                                 #
+#################################################
+# Random Forest for testing data
+irisPred<-predict(iris_rf,newdata=testData)
+# Confusion Matrix
+table(irisPred, testData$Species)
