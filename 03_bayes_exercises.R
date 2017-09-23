@@ -1,6 +1,6 @@
 #
 ###################################################
-# Exercise 1                                      #
+# Exercise 3.1                                    #
 ###################################################
 # Show/argue that the odds-ratio in eq.(7)        #
 # can be written as the inequality (eq.(8))       #
@@ -40,7 +40,7 @@
 #                  □
 
 #################################################
-# Exercise 2a                                   #
+# Exercise 3.2a                                 #
 #################################################
 # Source:                                       #
 #                                               #############################################################
@@ -70,7 +70,7 @@ title(main = "Democrat votes for V2", xlab = "Votes", ylab = "Amount")
 
 
 #################################################
-# Exercise 2b                                   #
+# Exercise 3.2b                                 #
 #################################################
 
 # Taking care of missing values before we actually use Naive Bayes
@@ -159,7 +159,7 @@ summary(nb_model)
 str(nb_model)
 
 #################################################
-# Exercise 2c                                   #
+# Exercise 3.2c                                 #
 #################################################
 # Time to do some predicting
 # This is done by feeding test data into our model (nb_model) and then comparing with known
@@ -174,13 +174,13 @@ table(pred = nb_test_predict, true = testHouseeVotes84$Class)
 # The values might vary on your NON-Linux computers.
 
 #################################################
-# Exercise 2d                                   #
+# Exercise 3.2d                                 #
 #################################################
 # Fractions of correct predictions
 mean(nb_test_predict == testHouseeVotes84$Class)
 
 #################################################
-# Exercise 2e                                  #
+# Exercise 3.2e                                 #
 #################################################
 # One is the loneliest number, therefore we do things multiple times!
 
@@ -209,5 +209,13 @@ summary(fraction_correct_predictions)
 # Standard Deviation
 sd(fraction_correct_predictions)
 
-# That is it for exercise 2
-# Exercise 3 coming very soon!
+# That is it for exercise 3.2
+
+#################################################
+# Exercise 3.3a                                 #
+#################################################
+# Source:                                       #####################################
+# https://www2.warwick.ac.uk/fac/sci/moac/people/students/peter_cock/r/iris_plots/  #
+#####################################################################################
+
+# Lets do some fancy colourful plotting
