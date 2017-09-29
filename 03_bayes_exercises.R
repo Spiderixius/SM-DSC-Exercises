@@ -15,7 +15,7 @@
 #
 #
 #  ℙ(∏1 | x)
-#             >  1
+# ___________ >  1
 #  ℙ(∏2 | X)
 #
 # <=>
@@ -92,7 +92,7 @@ na_by_col_class <-
     )
   }
 
-## Function for the conditional probability that a member of a party will cast y 
+## Function for the conditional probability that a member of a party will cast y and n
 ## for a topic, based on all members of te party who cast a vote (without NA)
 p_y_col_class <- 
   function(col, cls){
@@ -116,7 +116,7 @@ na_by_col_class(2, "democrat")
 na_by_col_class(2, "republican")
 
 ## Replace missing values by randomly assigning y or n to NA's
-### Uniform distribution is used used to set the NA value to yes if the random numer returned
+### Uniform distribution is used to set the NA value to yes if the random number returned
 ### is less than the probability of a yes vote and to no otherwise.
 for (i in 2:ncol(HouseVotes84)) {
   if (sum(is.na(HouseVotes84[, i]) > 0)) {
