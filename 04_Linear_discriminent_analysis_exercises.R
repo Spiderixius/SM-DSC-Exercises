@@ -131,3 +131,19 @@ confusion <-
 #####################################
 # Exercise 2a                       #
 #####################################
+# Source:                           ########################################################
+# https://rstudio-pubs-static.s3.amazonaws.com/35817_2552e05f1d4e4db8ba87b334101a43da.html #
+############################################################################################
+#install.packages("rattle")
+#install.packages("car")
+library(car)
+setwd("~/Documents/rprojects/dataScience/DataFiles")
+
+# Source: https://artax.karlin.mff.cuni.cz/r-help/library/rattle/html/wine.html
+wine <- read.csv("wine.data")
+colnames(wine) <- c('Type', 'Alcohol', 'Malic', 'Ash', 
+                    'Alcalinity', 'Magnesium', 'Phenols', 
+                    'Flavanoids', 'Nonflavanoids',
+                    'Proanthocyanins', 'Color', 'Hue', 
+                    'Dilution', 'Proline')
+wine$Type <- as.factor(wine$Type)
