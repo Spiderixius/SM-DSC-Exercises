@@ -1,5 +1,11 @@
 setwd("~/Documents/rprojects/dataScience")
 
+
+# Defintion of Linear Discriminant Analysis:
+#     Which feaure (attribute) can best help determine the classification of a data row(x)
+#     The decisive attributes for classification
+
+
 #####################################
 # Exercise 1a                       #
 #####################################
