@@ -139,6 +139,7 @@ confusion <-
 library(car)
 setwd("~/Documents/rprojects/dataScience/DataFiles")
 
+# Could not find wine in the "rattle" library, so wine has been brought down manually
 # Source: https://artax.karlin.mff.cuni.cz/r-help/library/rattle/html/wine.html
 wine <- read.csv("wine.data")
 colnames(wine) <- c('Type', 'Alcohol', 'Malic', 'Ash', 
@@ -147,3 +148,38 @@ colnames(wine) <- c('Type', 'Alcohol', 'Malic', 'Ash',
                     'Proanthocyanins', 'Color', 'Hue', 
                     'Dilution', 'Proline')
 wine$Type <- as.factor(wine$Type)
+
+#####################################
+# Exercise 2b                       #
+#####################################
+# Scat time
+scatterplotMatrix(wine[2:6])
+
+#####################################
+# Exercise 2c                       #
+#####################################
+library(MASS)
+wine.lda <- lda(Type ~ . , data = wine)
+wine.lda
+# Wine.lda finds the two best discriminant functions
+
+# The function expresses the LDA of features.
+
+#####################################
+# Exercise 2d                       #
+#####################################
+wine.lda.values <- predict(wine.lda)
+ldahist(data = wine.lda.values$x[, 1], g= wine$Type)
+ldahist(data = wine.lda.values$x[, 2], g= wine$Type)
+
+# In the plot the two best discriminant functions are plotted on 
+# each axis to determine which function seperates the fgroups best.
+
+#####################################
+# Exercise 2e                       #
+#####################################
+plot(wine.lda.values$x[, 1], wine.lda.values$x[, 2])
+text(wine.lda.values$x[, 1], wine.lda.values$x[, 2], wine$Type, cex=0.7, pos=4, col="red")
+
+# Scatterplot of the two best discriminant functions functions, with
+# the data points labelled by cultivar.
