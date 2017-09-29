@@ -4,6 +4,8 @@ setwd("~/Documents/rprojects/dataScience")
 # Defintion of Linear Discriminant Analysis:
 #     Which feaure (attribute) can best help determine the classification of a data row(x)
 #     The decisive attributes for classification
+#     This means, we are filtering the features and weighing them to see which features
+#     makes sense to use for the classification.
 
 
 #####################################
