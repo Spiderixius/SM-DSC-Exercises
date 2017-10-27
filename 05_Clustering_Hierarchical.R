@@ -55,37 +55,65 @@ pairs(df, panel = panel.smooth, main = "USArrests data")
 ##############################################################
 # Source: http://www.sthda.com/english/wiki/print.php?id=237 #
 ##############################################################
-# Dissimilarity matrix
-# Found a kickass library for that but lets do it as stated in the paper as the extra library does
-# not contain ward.D2
+# Dissimilarity matrix using euclidean distance formula
+d <- dist(df, method = "euclidean")
 
-# install.packages("factoextra")
-# library(factoextra)
-# ward.D2 distance method
-hc.D2 <- hclust(dist(df), "ward.D2")
+# Ward.D2 method
+hc.D2 <- hclust(d, "ward.D2")
 plot(hc.D2)
 
 # Just some extra linkages.
 # Complete linkage
-hc.complete <- hclust(dist(df), "complete")
+hc.complete <- hclust(d, "complete")
 plot(hc.complete)
 
 # Single linkage
-hc.single <- hclust(dist(df), "single")
+hc.single <- hclust(d, "single")
 plot(hc.single)
 
 # Avg linkage
-hc.avg <- hclust(dist(df), "average")
+hc.avg <- hclust(d, "average")
 plot(hc.avg)
-
 
 #####################################
 # Exercise 2e                       #
 #####################################
+# AGNES and DIANA in action
 
+# AGNES
+res.agnes <- agnes(df, method = "ward")
+pltree(res.agnes, main = "Dendogram for AGNES")
 
+# DIANA
+res.diana <- diana(df)
+pltree(res.diana, main = "Dendogram for DIANA")
 
+#####################################
+# Exercise 2f                       #
+#####################################
+# Time to cut the tree using cutree, 
+# this will truncate the tree and give us some amount of clusters
+grp <- cutree(hc.D2, k = 4)
+table(grp)
 
+# Plot the new cut dendogram
+plot(hc.D2, cex = 0.6)
+# Draw rectangles around the clusters
+rect.hclust(hc.D2, k = 4, border = 2:5)
 
+#####################################
+# Exercise 2g                       #
+#####################################
+# Compare dendograms
 
+# Create two dendrograms
+dend1 <- as.dendrogram (hc.D2)
+dend2 <- as.dendrogram (hc.complete)
 
+# Put them in a list
+dend_list <- dendlist(dend1, dend2)
+plot(dend_list)
+
+#####################################
+# Exercise 2h                       #
+#####################################
