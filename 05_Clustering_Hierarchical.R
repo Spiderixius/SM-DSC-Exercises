@@ -21,7 +21,7 @@ library(dendextend)
 # What are the observations and what are the variables?
 
 # Observations are the 50 state of Unitied States of America
-# The four observations are:
+# The four variables are:
 #       - [,1] 	Murder 	numeric 	Murder arrests (per 100,000)
 #       - [,2] 	Assault 	numeric 	Assault arrests (per 100,000)
 #       - [,3] 	UrbanPop 	numeric 	Percent urban population
@@ -40,7 +40,7 @@ data("USArrests")
 head(USArrests)
 summary(USArrests)
 
-# As we can see we need to normalize the data
+# As we can see we need to standardize the data
 df <- scale(USArrests)
 df <- na.omit(USArrests)
 # And now if we look at the head
@@ -107,13 +107,16 @@ rect.hclust(hc.D2, k = 4, border = 2:5)
 # Compare dendograms
 
 # Create two dendrograms
-dend1 <- as.dendrogram (hc.D2)
-dend2 <- as.dendrogram (hc.complete)
+dend1 <- as.dendrogram (res.agnes)
+dend2 <- as.dendrogram (res.diana)
 
 # Put them in a list
 dend_list <- dendlist(dend1, dend2)
 plot(dend_list)
+tanglegram(dend1, dend2)
 
 #####################################
 # Exercise 2h                       #
 #####################################
+# Explore the silhouette function, plot it.
+silhouette(grp,d)

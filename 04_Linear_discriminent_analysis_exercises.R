@@ -183,3 +183,7 @@ text(wine.lda.values$x[, 1], wine.lda.values$x[, 2], wine$Type, cex=0.7, pos=4, 
 
 # Scatterplot of the two best discriminant functions functions, with
 # the data points labelled by cultivar.
+
+
+
+
